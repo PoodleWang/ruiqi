@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class Solution {
+    public static final String ROCK = "ROCK";
+    public static final String PAPER = "PAPER";
+    public static final String SCISSORS = "SCISSORS";
+
+    public static final String[] strings = {
+            ROCK,
+            PAPER,
+            SCISSORS,
+    };
+    public static void main(String[] args) {
+        Random random = new Random();
+        String computer = strings[random.nextInt(strings.length)];
+        // 这里要check 一下 scanner输入是否合法
+        Scanner myObj = new Scanner(System.in);
+
+        // 这里打印一下结果
+        Boolean result = Judge(myObj.next(),computer);
+    }
+
+    public static boolean Judge(String player1, String player2) {
+        if (player1.equals(ROCK) && player2.equals(PAPER)) {
+            return false;
+        } else if (player1.equals(ROCK) && player2.equals(SCISSORS)) {
+            return true;
+        } else if (player1.equals(PAPER) && player2.equals(ROCK)) {
+            return true;
+        } else if (player1.equals(PAPER) && player2.equals(SCISSORS)) {
+            return false;
+        } else if (player1.equals(SCISSORS) && player2.equals(ROCK)) {
+            return false;
+        } else  {
+            return false;
+        }
+    }
+}
